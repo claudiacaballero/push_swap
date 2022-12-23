@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 15:21:16 by ccaballe          #+#    #+#             */
-/*   Updated: 2022/12/22 19:10:29 by ccaballe         ###   ########.fr       */
+/*   Updated: 2022/12/23 17:09:46 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,27 @@ long int	ft_atol(char *s, char sign)
 		res = (res * 10) + (s[i] - '0');
 		i++;
 	}
-	return (res * neg);
+	res = res * neg;
+	if (res > INT_MAX || res < INT_MIN)
+		ft_error(1);
+	return (res);
+}
+
+void	check_dups(long int n, char **argv, int ar)
+{
+	int			i;
+	long int	temp;
+
+	i = 1;
+	temp = 0;
+	while (argv[i])
+	{
+		if (i != ar)
+		{
+			temp = process_input(argv[i]);
+			if (n == temp)
+				ft_error(1);
+		}
+		i++;
+	}
 }
