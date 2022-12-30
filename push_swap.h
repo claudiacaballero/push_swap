@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:38:33 by ccaballe          #+#    #+#             */
-/*   Updated: 2022/12/30 16:53:37 by ccaballe         ###   ########.fr       */
+/*   Updated: 2022/12/30 19:32:09 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,8 @@ int			main(int argc, char **argv);
 long int	process_input(char *s);
 long int	ft_atol(char *s, char sign);
 void		check_dups(long int n, char **argv, int ar);
+
+//sorting functions
+void		rab(t_stack *stack);
 
 #endif

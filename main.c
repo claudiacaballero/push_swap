@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 15:10:48 by ccaballe          #+#    #+#             */
-/*   Updated: 2022/12/30 16:47:41 by ccaballe         ###   ########.fr       */
+/*   Updated: 2022/12/30 19:38:41 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,12 @@ int	main(int argc, char **argv)
 			fill_stack_a(ft_atoi(argv[ar]), &a);
 			ar++;
 		}
+	}
+	rab(&a);
+	while (a.first)
+	{
+		printf("%i\n", a.first->val);
+		a.first = a.first->next;
 	}
 	return (0);
 }
