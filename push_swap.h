@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:38:33 by ccaballe          #+#    #+#             */
-/*   Updated: 2022/12/30 16:08:34 by ccaballe         ###   ########.fr       */
+/*   Updated: 2022/12/30 16:53:37 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_stack
 
 //main functions
 void		ft_error(int type);
+void		fill_stack_a(int n, t_stack *a);
 int			main(int argc, char **argv);
 
 //input_check functions
