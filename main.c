@@ -6,11 +6,12 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 15:10:48 by ccaballe          #+#    #+#             */
-/*   Updated: 2022/12/23 17:33:00 by ccaballe         ###   ########.fr       */
+/*   Updated: 2022/12/30 16:47:41 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 void	ft_error(int type)
 {
@@ -19,36 +20,48 @@ void	ft_error(int type)
 	exit(type);
 }
 
-t_stack	*fill_stack_a(int n, t_stack *a)
+void	fill_stack_a(int n, t_stack *a)
 {
-	t_stack	node;
+	t_node	*node;
 
-	node = (t_stack)malloc(sizeof(t_stack));
-	//ft_lstadd_back(&a, &node); pero es t_list i no t_stack, suposo que ho haure de canviar
-	return (a);
+	node = (t_node *)malloc(sizeof(t_node));
+	if (!node)
+		ft_error(1);
+	node->val = n;
+	node->prev = NULL;
+	node->next = NULL;
+	if (!a->first)
+	{
+		a->first = node;
+		a->last = node;
+		a->size = 1;
+	}
+	else
+	{
+		a->last->next = node;
+		node->prev = a->last;
+		a->last = node;
+		a->size++;
+	}
+	node->index = a->size - 1;
 }
 
 int	main(int argc, char **argv)
 {
 	int			ar;
 	long int	new;
-	t_stack		*a;
+	t_stack		a;
 
-	if (argc < 1)
-		ft_error(1);
-	else if (argc < 2)
+	if (argc < 2)
 		ft_error(0);
 	else
 	{
-		a = (t_stack *)malloc(sizeof(t_stack) * argc);
-		if (!a)
-			return (0);
 		ar = 1;
 		while (ar < argc)
 		{
 			new = process_input(argv[ar]);
 			check_dups(new, argv, ar);
-			//fill_stack_a(ft_atoi(argv[ar]), a);
+			fill_stack_a(ft_atoi(argv[ar]), &a);
 			ar++;
 		}
 	}

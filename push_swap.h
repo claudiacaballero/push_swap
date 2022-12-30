@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:38:33 by ccaballe          #+#    #+#             */
-/*   Updated: 2022/12/23 15:01:10 by ccaballe         ###   ########.fr       */
+/*   Updated: 2022/12/30 16:08:34 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,19 @@
 # include "libft/libft.h"
 
 //list struct
-typedef struct ps_stack
+typedef struct s_node
 {
-	int				content;
-	struct ps_stack	*next;
-	struct ps_stack	*prev;
+	int				val;
+	int				index;
+	struct s_node	*next;
+	struct s_node	*prev;
+}	t_node;
+
+typedef struct s_stack
+{
+	t_node	*first;
+	t_node	*last;
+	int		size;
 }	t_stack;
 
 //main functions
