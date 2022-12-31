@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:38:33 by ccaballe          #+#    #+#             */
-/*   Updated: 2022/12/30 19:32:09 by ccaballe         ###   ########.fr       */
+/*   Updated: 2022/12/31 12:10:08 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ void		check_dups(long int n, char **argv, int ar);
 
 //sorting functions
 void		rab(t_stack *stack);
+void		pab(t_stack *src, t_stack *dst);
 
 #endif
