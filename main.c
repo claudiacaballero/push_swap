@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 15:10:48 by ccaballe          #+#    #+#             */
-/*   Updated: 2022/12/31 12:12:02 by ccaballe         ###   ########.fr       */
+/*   Updated: 2022/12/31 14:17:18 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,24 @@ void	fill_stack_a(int n, t_stack *a)
 	node->index = a->size - 1;
 }
 
+void	initialize_stacks(t_stack *a, t_stack *b)
+{
+	a->first = NULL;
+	a->last = NULL;
+	a->size = 0;
+	b->first = NULL;
+	b->last = NULL;
+	b->size = 0;
+}
+
 int	main(int argc, char **argv)
 {
 	int			ar;
 	long int	new;
 	t_stack		a;
+	t_stack		b;
 
+	initialize_stacks(&a, &b);
 	if (argc < 2)
 		ft_error(0);
 	else
@@ -65,11 +77,10 @@ int	main(int argc, char **argv)
 			ar++;
 		}
 	}
-	// rab(&a);
-	// while (a.first)
-	// {
-	// 	printf("%i\n", a.first->val);
-	// 	a.first = a.first->next;
-	// }
+	while (a.first)
+	{
+		printf("%i\n", a.first->val);
+		a.first = a.first->next;
+	}
 	return (0);
 }

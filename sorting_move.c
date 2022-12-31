@@ -6,19 +6,30 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 17:35:19 by ccaballe          #+#    #+#             */
-/*   Updated: 2022/12/31 12:09:39 by ccaballe         ###   ########.fr       */
+/*   Updated: 2022/12/31 12:50:01 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void	sab(t_stack *stack, char id)
-// {
-// }
+void	sab(t_stack *stack)
+{
+	t_node	*tmp;
+
+	tmp = stack->first;
+	stack->first = stack->first->next;
+	stack->first->prev = NULL;
+	tmp->next = stack->first->next;
+	tmp->prev = stack->first;
+	stack->first->next = tmp;
+	stack->first->index = 0;
+	tmp->index = 1;
+}
 
 void	pab(t_stack *src, t_stack *dst)
 {
 	t_node	*tmp;
+	t_node	*iter;
 	int		i;
 
 	i = 0;
@@ -26,10 +37,16 @@ void	pab(t_stack *src, t_stack *dst)
 	src->first = src->first->next;
 	src->first->prev = NULL;
 	src->size--;
+	iter = src->first;
+	while (iter)
+	{
+		iter->index -= 1;
+		iter = iter->next;
+	}
 	tmp->next = dst->first;
 	dst->first = tmp;
 	dst->size++;
-	while (tmp->next)
+	while (tmp)
 	{
 		tmp->index = i++;
 		tmp = tmp->next;
@@ -40,6 +57,7 @@ void	pab(t_stack *src, t_stack *dst)
 void	rab(t_stack *stack)
 {
 	t_node	*tmp;
+	int		i;
 
 	tmp = stack->first;
 	stack->first = stack->first->next;
@@ -48,9 +66,32 @@ void	rab(t_stack *stack)
 	tmp->next = NULL;
 	stack->last = tmp;
 	stack->first->prev = NULL;
+	i = 1;
+	while (tmp)
+	{
+		tmp->index = stack->size - i;
+		i++;
+		tmp = tmp->prev;
+	}
 	//write()
 }
 
-// void	rrab(t_stack *stack)
-// {
-// }
+void	rrab(t_stack *stack)
+{
+	t_node	*tmp;
+	int		i;
+
+	tmp = stack->last;
+	stack->last = stack->last->prev;
+	stack->last->next = NULL;
+	tmp->next = stack->first;
+	tmp->prev = NULL;
+	stack->first = tmp;
+	i = 0;
+	while (tmp)
+	{
+		tmp->index = i++;
+		tmp = tmp->next;
+	}
+	//write()
+}
