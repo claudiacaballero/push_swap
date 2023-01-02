@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 17:35:19 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/02 16:21:40 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/02 18:20:47 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ void	sab(t_stack *stack)
 	stack->first->next = tmp;
 	stack->first->index = 0;
 	tmp->index = 1;
+	if (stack->size == 2)
+		stack->last = tmp;
+	else
+		tmp->next->prev = tmp;
 	//write()
 }
 
@@ -31,25 +35,31 @@ void	pab(t_stack *src, t_stack *dst)
 {
 	t_node	*tmp;
 	t_node	*iter;
-	int		i;
 
-	i = 0;
+	if (!src->size)
+		return ;
 	tmp = src->first;
-	src->first = src->first->next;
-	src->first->prev = NULL;
-	src->size--;
+	src->first = tmp->next;
+	if (src->first)
+		src->first->prev = NULL;
+	if (!--src->size)
+		src->last = NULL;
 	iter = src->first;
 	while (iter)
 	{
-		iter->index -= 1;
+		iter->index--;
 		iter = iter->next;
 	}
+	if (dst->size != 0)
+		dst->first->prev = tmp;
 	tmp->next = dst->first;
 	dst->first = tmp;
+	if (dst->size == 0)
+		dst->last = tmp;
 	dst->size++;
-	while (tmp)
+	while (tmp->next)
 	{
-		tmp->index = i++;
+		tmp->next->index++;
 		tmp = tmp->next;
 	}
 	//write()

@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 15:10:48 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/02 16:22:06 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/02 19:33:36 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,16 @@ int	main(int argc, char **argv)
 			ar++;
 		}
 	}
-	return (0);
-}
-
+	// printf("------------------------\n");
+	// pab(&a, &b);
+	// pab(&a, &b);
+	// pab(&a, &b);
+	// pab(&a, &b);
+	// printf("------------------------\na\n");
+	// printf("first = %p\n", a.first);
+	// printf("last = %p\n", a.last);
+	// printf("size = %i\n", a.size);
+	// printf("------------------------\na\n");
 	// while (a.first)
 	// {
 	// 	printf("dir = %p\n", a.first);
@@ -89,3 +96,19 @@ int	main(int argc, char **argv)
 	// 	printf("next = %p\n\n", a.first->next);
 	// 	a.first = a.first->next;
 	// }
+	// printf("------------------------\nb\n");
+	// printf("first = %p\n", b.first);
+	// printf("last = %p\n", b.last);
+	// printf("size = %i\n", b.size);
+	// printf("------------------------\n");
+	// while (b.first)
+	// {
+	// 	printf("dir = %p\n", b.first);
+	// 	printf("val = %i\n", b.first->val);
+	// 	printf("ind = %i\n", b.first->index);
+	// 	printf("prev = %p\n", b.first->prev);
+	// 	printf("next = %p\n\n", b.first->next);
+	// 	b.first = b.first->next;
+	// }
+	return (0);
+}
