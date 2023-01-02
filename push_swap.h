@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:38:33 by ccaballe          #+#    #+#             */
-/*   Updated: 2022/12/31 14:12:41 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/02 16:05:43 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,7 @@ void		rrab(t_stack *stack);
 
 //check stack functions
 int			ft_isinorder(t_stack *stack);
+int			whereismin(t_stack *stack);
+int			whereismax(t_stack *stack);
 
 #endif

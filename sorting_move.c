@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 17:35:19 by ccaballe          #+#    #+#             */
-/*   Updated: 2022/12/31 12:50:01 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/02 16:21:40 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	sab(t_stack *stack)
 	stack->first->next = tmp;
 	stack->first->index = 0;
 	tmp->index = 1;
+	//write()
 }
 
 void	pab(t_stack *src, t_stack *dst)
@@ -86,6 +87,7 @@ void	rrab(t_stack *stack)
 	stack->last->next = NULL;
 	tmp->next = stack->first;
 	tmp->prev = NULL;
+	stack->first->prev = tmp;
 	stack->first = tmp;
 	i = 0;
 	while (tmp)

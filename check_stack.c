@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 13:09:49 by ccaballe          #+#    #+#             */
-/*   Updated: 2022/12/31 14:16:52 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/02 16:04:57 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,56 @@ int	ft_isinorder(t_stack *stack)
 		tmp = tmp->next;
 	}
 	return (1);
+}
+
+int	whereismin(t_stack *stack)
+{
+	int		i;
+	t_node	*tmp;
+	t_node	*iter;
+
+	i = 0;
+	tmp = stack->first;
+	iter = tmp->next;
+	while (iter)
+	{
+		if (tmp->val < iter->val)
+		{
+			i = tmp->index;
+			iter = iter->next;
+		}
+		else
+		{
+			i = iter->index;
+			tmp = iter;
+			iter = tmp->next;
+		}
+	}
+	return (i);
+}
+
+int	whereismax(t_stack *stack)
+{
+	int		i;
+	t_node	*tmp;
+	t_node	*iter;
+
+	i = 0;
+	tmp = stack->first;
+	iter = tmp->next;
+	while (iter)
+	{
+		if (tmp->val > iter->val)
+		{
+			i = tmp->index;
+			iter = iter->next;
+		}
+		else
+		{
+			i = iter->index;
+			tmp = iter;
+			iter = tmp->next;
+		}
+	}
+	return (i);
 }
