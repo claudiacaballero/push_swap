@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 17:35:19 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/02 18:20:47 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/03 14:53:16 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	sab(t_stack *stack)
 void	pab(t_stack *src, t_stack *dst)
 {
 	t_node	*tmp;
-	t_node	*iter;
 
 	if (!src->size)
 		return ;
@@ -44,12 +43,6 @@ void	pab(t_stack *src, t_stack *dst)
 		src->first->prev = NULL;
 	if (!--src->size)
 		src->last = NULL;
-	iter = src->first;
-	while (iter)
-	{
-		iter->index--;
-		iter = iter->next;
-	}
 	if (dst->size != 0)
 		dst->first->prev = tmp;
 	tmp->next = dst->first;
@@ -57,18 +50,14 @@ void	pab(t_stack *src, t_stack *dst)
 	if (dst->size == 0)
 		dst->last = tmp;
 	dst->size++;
-	while (tmp->next)
-	{
-		tmp->next->index++;
-		tmp = tmp->next;
-	}
+	index_stack(src);
+	index_stack(dst);
 	//write()
 }
 
 void	rab(t_stack *stack)
 {
 	t_node	*tmp;
-	int		i;
 
 	tmp = stack->first;
 	stack->first = stack->first->next;
@@ -77,20 +66,13 @@ void	rab(t_stack *stack)
 	tmp->next = NULL;
 	stack->last = tmp;
 	stack->first->prev = NULL;
-	i = 1;
-	while (tmp)
-	{
-		tmp->index = stack->size - i;
-		i++;
-		tmp = tmp->prev;
-	}
+	index_stack(stack);
 	//write()
 }
 
 void	rrab(t_stack *stack)
 {
 	t_node	*tmp;
-	int		i;
 
 	tmp = stack->last;
 	stack->last = stack->last->prev;
@@ -99,11 +81,6 @@ void	rrab(t_stack *stack)
 	tmp->prev = NULL;
 	stack->first->prev = tmp;
 	stack->first = tmp;
-	i = 0;
-	while (tmp)
-	{
-		tmp->index = i++;
-		tmp = tmp->next;
-	}
+	index_stack(stack);
 	//write()
 }

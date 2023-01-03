@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 15:10:48 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/02 19:33:36 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/03 15:10:01 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,11 @@ int	main(int argc, char **argv)
 			ar++;
 		}
 	}
+	return (0);
+}
+
 	// printf("------------------------\n");
-	// pab(&a, &b);
-	// pab(&a, &b);
-	// pab(&a, &b);
-	// pab(&a, &b);
+	// sab(&a);
 	// printf("------------------------\na\n");
 	// printf("first = %p\n", a.first);
 	// printf("last = %p\n", a.last);
@@ -110,5 +110,3 @@ int	main(int argc, char **argv)
 	// 	printf("next = %p\n\n", b.first->next);
 	// 	b.first = b.first->next;
 	// }
-	return (0);
-}
