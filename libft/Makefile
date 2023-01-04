@@ -6,18 +6,9 @@
 #    By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/17 16:36:29 by ccaballe          #+#    #+#              #
-#    Updated: 2022/10/31 18:39:35 by ccaballe         ###   ########.fr        #
+#    Updated: 2023/01/04 13:18:47 by ccaballe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-ifneq (,$(findstring xterm,${TERM}))
-	LIGHTPURPLE  := $(shell tput -Txterm setaf 5)
-	YELLOW       := $(shell tput -Txterm setaf 3)
-	GREEN        := $(shell tput -Txterm setaf 2)
-	RED	         := $(shell tput -Txterm setaf 1)
-	RESET    	 := $(shell tput -Txterm setaf 0)
-else
-	endif
 
 NAME = libft.a
 BNAME = .bonus
@@ -67,39 +58,35 @@ SRCSBONUS = ft_lstnew_bonus.c \
 	ft_lstiter_bonus.c \
 	ft_lstmap_bonus.c \
 
-OBJS = ${SRCS:.c=.o}
-OBJSBONUS = ${SRCSBONUS:.c=.o}
+OBJS = $(SRCS:.c=.o)
+OBJSBONUS = $(SRCSBONUS:.c=.o)
 RM = rm -f
-DEPS = ${SRCS:.c=.d}
-DEPSBONUS = ${SRCSBONUS:.c=.d}
+DEPS = $(SRCS:.c=.d)
+DEPSBONUS = $(SRCSBONUS:.c=.d)
 
 %.o: %.c Makefile
-	@${CC} ${CFLAGS} -MMD -I./ -c $< -o $@
-	@echo "${LIGHTPURPLE}compiling:	${YELLOW}$<"
+	@$(CC) $(CFLAGS) -MMD -I./ -c $< -o $@
 
-all: ${NAME}
+all: $(NAME)
 
-${NAME}: ${OBJS}
-	@ar crs ${NAME} ${OBJS}
-	@echo "	${GREEN}\ncompilation successful\n"
+$(NAME): $(OBJS)
+	@ar crs $(NAME) $(OBJS)
 
--include ${DEPS}
+-include $(DEPS)
 
-bonus: ${BNAME}
+bonus: $(BNAME)
 
-${BNAME}: ${OBJS} ${OBJSBONUS}
-	@ar rcs ${NAME} ${OBJS} ${OBJSBONUS}
-	@echo "	${GREEN}\nbonus compilation successful\n"
+$(BNAME): $(OBJS) $(OBJSBONUS)
+	@ar rcs $(NAME) $(OBJS) $(OBJSBONUS)
 	@touch $@
 
 -include $(DEPSBONUS)
 
 clean:
-	@${RM} ${OBJS} ${DEPS} ${OBJSBONUS} ${DEPSBONUS}
-	@echo "${GREEN}\ndestruction successful\n"
+	@$(RM) $(OBJS) $(DEPS) $(OBJSBONUS) $(DEPSBONUS)
 
 fclean: clean
-	@${RM} ${NAME} ${BNAME}
+	@$(RM) $(NAME) $(BNAME)
 
 re: fclean all
 

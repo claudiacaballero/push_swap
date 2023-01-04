@@ -6,13 +6,13 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 16:41:19 by ccaballe          #+#    #+#             */
-/*   Updated: 2022/09/21 18:14:35 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/04 13:03:21 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dst, void *src, size_t len)
 {
 	size_t			i;
 	unsigned char	*a;

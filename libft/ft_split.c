@@ -6,14 +6,14 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 19:12:30 by ccaballe          #+#    #+#             */
-/*   Updated: 2022/09/29 16:15:32 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/04 13:03:38 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-static int	ft_num_words(const char *s, char c)
+static int	ft_num_words(char *s, char c)
 {
 	int	nw;
 	int	i;
@@ -33,7 +33,7 @@ static int	ft_num_words(const char *s, char c)
 	return (nw);
 }
 
-static size_t	ft_lenword(const char *s, int i, char c)
+static size_t	ft_lenword(char *s, int i, char c)
 {
 	size_t	start;
 
@@ -57,7 +57,7 @@ static void	*ft_free(char **m)
 	return (NULL);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
 	char	**m;
 	int		row;

@@ -6,13 +6,13 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 16:44:19 by ccaballe          #+#    #+#             */
-/*   Updated: 2022/09/20 14:57:18 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/04 13:03:44 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(char *s, int c)
 {
 	int		i;
 	char	*a;

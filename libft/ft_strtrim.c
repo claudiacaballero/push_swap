@@ -6,13 +6,13 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 19:21:31 by ccaballe          #+#    #+#             */
-/*   Updated: 2022/10/11 19:17:18 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/04 13:04:35 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_cmpchr(char c, char const *set)
+static int	ft_cmpchr(char c, char *set)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ static int	ft_cmpchr(char c, char const *set)
 	return (0);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char *s1, char *set)
 {
 	int		i;
 	int		l;

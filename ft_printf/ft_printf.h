@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/19 16:25:43 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/04 13:01:46 by ccaballe         ###   ########.fr       */
+/*   Created: 2022/10/04 15:33:56 by ccaballe          #+#    #+#             */
+/*   Updated: 2022/10/19 15:04:01 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int	ft_atoi(char *str)
-{
-	int	i;
-	int	neg;
-	int	res;
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdarg.h>
 
-	i = 0;
-	neg = 1;
-	res = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == 43 || str[i] == 45)
-	{
-		if (str[i] == 45)
-			neg *= -1;
-		i++;
-	}
-	while (str[i] >= 48 && str[i] <= 57)
-	{
-		res = (res * 10) + (str[i] - '0');
-		i++;
-	}
-	return (neg * res);
-}
+int	ft_putchar(char c);
+int	ft_putstr(char *s);
+int	ft_putnbr(long long int nb, int c);
+int	ft_putnbr_base(unsigned int nb, char c);
+int	ft_putptr(unsigned long ptr);
+int	ft_print_arg(va_list args, char type);
+int	ft_printf(char const *str, ...);
+
+#endif

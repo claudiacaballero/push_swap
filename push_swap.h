@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:38:33 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/03 15:58:23 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/04 13:31:41 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <limits.h>
 # include <stdlib.h>
 # include "libft/libft.h"
+# include "ft_printf/ft_printf.h"
 
 //list struct
 typedef struct s_node
@@ -48,10 +49,14 @@ long int	ft_atol(char *s, char sign);
 void		check_dups(long int n, char **argv, int ar);
 
 //sorting functions
-void		sab(t_stack *stack);
-void		pab(t_stack *src, t_stack *dst);
-void		rab(t_stack *stack);
-void		rrab(t_stack *stack);
+void		sab(t_stack *stack, char ab);
+void		pab(t_stack *src, t_stack *dst, char ab);
+void		rab(t_stack *stack, char ab);
+void		rrab(t_stack *stack, char ab);
+//doubles
+void		ss(t_stack *a, t_stack *b);
+void		rr(t_stack *a, t_stack *b);
+void		rrr(t_stack *a, t_stack *b);
 
 //check stack functions
 int			ft_isinorder(t_stack *stack);

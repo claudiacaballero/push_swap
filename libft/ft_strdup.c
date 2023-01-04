@@ -6,13 +6,13 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 19:55:06 by ccaballe          #+#    #+#             */
-/*   Updated: 2022/09/21 20:55:16 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/04 13:03:48 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup(char *s)
 {
 	char	*m;
 	int		i;

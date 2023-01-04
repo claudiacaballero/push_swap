@@ -6,13 +6,13 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 15:18:56 by ccaballe          #+#    #+#             */
-/*   Updated: 2022/09/22 18:48:57 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/04 13:03:55 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*s3;
 	size_t	i;
