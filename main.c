@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 15:10:48 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/03 15:10:01 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/04 18:56:11 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,14 @@ void	initialize_stacks(t_stack *a, t_stack *b)
 	b->size = 0;
 }
 
+void	sort_params(t_stack *a, t_stack *b)
+{
+	if (a->size < 4)
+		sort_three(a);
+	// else if (a->size == 4)
+	// 	sort_four(a, b);
+}
+
 int	main(int argc, char **argv)
 {
 	int			ar;
@@ -77,11 +85,10 @@ int	main(int argc, char **argv)
 			ar++;
 		}
 	}
+	sort_params(&a, &b);
 	return (0);
 }
 
-	// printf("------------------------\n");
-	// sab(&a);
 	// printf("------------------------\na\n");
 	// printf("first = %p\n", a.first);
 	// printf("last = %p\n", a.last);
@@ -96,6 +103,11 @@ int	main(int argc, char **argv)
 	// 	printf("next = %p\n\n", a.first->next);
 	// 	a.first = a.first->next;
 	// }
+	// printf("------------------------\n");
+	// pab(&a, &b, 'b');
+	// pab(&a, &b, 'b');
+	// sab(&a, 'a');
+	// ss(&a, &b);
 	// printf("------------------------\nb\n");
 	// printf("first = %p\n", b.first);
 	// printf("last = %p\n", b.last);

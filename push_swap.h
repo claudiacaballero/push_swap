@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:38:33 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/04 13:31:41 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/04 18:11:17 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,28 +42,30 @@ void		ft_error(int type);
 void		fill_stack_a(int n, t_stack *a);
 void		initialize_stacks(t_stack *a, t_stack *b);
 int			main(int argc, char **argv);
+void		sort_params(t_stack *a, t_stack *b);
 
 //input_check functions
 long int	process_input(char *s);
 long int	ft_atol(char *s, char sign);
 void		check_dups(long int n, char **argv, int ar);
 
-//sorting functions
+//sorting movement functions
 void		sab(t_stack *stack, char ab);
 void		pab(t_stack *src, t_stack *dst, char ab);
 void		rab(t_stack *stack, char ab);
 void		rrab(t_stack *stack, char ab);
+void		index_stack(t_stack *stack);
 //doubles
 void		ss(t_stack *a, t_stack *b);
 void		rr(t_stack *a, t_stack *b);
 void		rrr(t_stack *a, t_stack *b);
 
 //check stack functions
-int			ft_isinorder(t_stack *stack);
+int			isinorder(t_stack *stack);
 int			whereismin(t_stack *stack);
 int			whereismax(t_stack *stack);
 
-//stack utils functions
-void		index_stack(t_stack *stack);
+//sorting
+void		sort_three(t_stack *stack);
 
 #endif

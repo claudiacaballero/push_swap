@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 17:35:19 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/04 13:23:20 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/04 17:49:13 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	sab(t_stack *stack, char ab)
 {
 	t_node	*tmp;
 
+	if (stack->size < 2)
+		return ;
 	tmp = stack->first;
 	stack->first = stack->first->next;
 	stack->first->prev = NULL;
@@ -54,13 +56,15 @@ void	pab(t_stack *src, t_stack *dst, char ab)
 	index_stack(src);
 	index_stack(dst);
 	if (ft_strchr("ab", ab))
-		ft_printf("s%c\n", ab);
+		ft_printf("p%c\n", ab);
 }
 
 void	rab(t_stack *stack, char ab)
 {
 	t_node	*tmp;
 
+	if (stack->size < 2)
+		return ;
 	tmp = stack->first;
 	stack->first = stack->first->next;
 	stack->last->next = tmp;
@@ -70,13 +74,15 @@ void	rab(t_stack *stack, char ab)
 	stack->first->prev = NULL;
 	index_stack(stack);
 	if (ft_strchr("ab", ab))
-		ft_printf("s%c\n", ab);
+		ft_printf("r%c\n", ab);
 }
 
 void	rrab(t_stack *stack, char ab)
 {
 	t_node	*tmp;
 
+	if (stack->size < 2)
+		return ;
 	tmp = stack->last;
 	stack->last = stack->last->prev;
 	stack->last->next = NULL;
@@ -86,5 +92,19 @@ void	rrab(t_stack *stack, char ab)
 	stack->first = tmp;
 	index_stack(stack);
 	if (ft_strchr("ab", ab))
-		ft_printf("s%c\n", ab);
+		ft_printf("rr%c\n", ab);
+}
+
+void	index_stack(t_stack *stack)
+{
+	t_node	*tmp;
+	int		i;
+
+	tmp = stack->first;
+	i = 0;
+	while (tmp)
+	{
+		tmp->index = i++;
+		tmp = tmp->next;
+	}
 }

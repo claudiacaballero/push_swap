@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   sort_small.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/03 14:41:05 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/03 14:43:32 by ccaballe         ###   ########.fr       */
+/*   Created: 2023/01/04 16:11:40 by ccaballe          #+#    #+#             */
+/*   Updated: 2023/01/04 18:10:22 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	index_stack(t_stack *stack)
+void	sort_three(t_stack *stack)
 {
-	t_node	*tmp;
-	int		i;
-
-	tmp = stack->first;
-	i = 0;
-	while (tmp)
-	{
-		tmp->index = i++;
-		tmp = tmp->next;
-	}
+	if (isinorder(stack))
+		return ;
+	else if (stack->first->val < stack->first->next->val)
+		rrab(stack, 'a');
+	else if (whereismax(stack) == 0)
+		rab(stack, 'a');
+	if (!isinorder(stack))
+		sab(stack, 'a');
 }
+
+// void	sort_four(t_stack *a, t_stack *b)
+// {}
+
+// void	sort_five(t_stack *a, t_stack *b)
+// {}

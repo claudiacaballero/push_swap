@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/01/04 16:08:34 by ccaballe          #+#    #+#              #
+#    Updated: 2023/01/04 17:49:52 by ccaballe         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = push_swap
 CFLAGS = -Wall -Wextra -Werror
 SRCS =	check_stack.c \
@@ -5,7 +17,7 @@ SRCS =	check_stack.c \
 		input_check.c \
 		main.c \
 		sorting_move.c \
-		stack_utils.c 
+		sort_small.c
 
 OBJS = $(SRCS:.c=.o)
 RM = rm -f
@@ -38,9 +50,6 @@ fclean: clean
 	@$(RM) $(NAME) libft/libft.a ft_printf/libftprintf.a
 
 re: fclean all
-
-#fer llibreria de get_next_line, ft_printf i libft && compilarles totes juntes
-#al costat d'OBJS afegir el .a que es generi d'aquella llibreria 
 
 .PHONY: all clean fclean re
 
