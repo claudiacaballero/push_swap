@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:38:33 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/04 18:11:17 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/06 19:14:44 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,7 @@ int			whereismax(t_stack *stack);
 
 //sorting
 void		sort_three(t_stack *stack);
+void		sort_four(t_stack *a, t_stack *b);
+void		sort_five(t_stack *a, t_stack *b);
 
 #endif
