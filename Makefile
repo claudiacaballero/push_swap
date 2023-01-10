@@ -6,7 +6,7 @@
 #    By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/04 16:08:34 by ccaballe          #+#    #+#              #
-#    Updated: 2023/01/09 17:33:15 by ccaballe         ###   ########.fr        #
+#    Updated: 2023/01/10 14:02:25 by ccaballe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ NC = \033[0m
 
 %.o: %.c Makefile
 	@$(CC) $(CFLAGS) -MMD -I./ -c $< -o $@
-u
+
 all: 
 	@$(MAKE) -C libft
 	@echo "$(GREEN)libft compiled$(NC)"

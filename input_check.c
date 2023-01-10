@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 15:21:16 by ccaballe          #+#    #+#             */
-/*   Updated: 2022/12/29 18:00:08 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/10 19:42:10 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ long int	process_input(char *s)
 	sign = 0;
 	if (s[i] == '+' || s[i] == '-')
 		sign = s[i++];
+	if (!s[i])
+		ft_error(1);
 	zero = i;
 	while (s[i] == '0' && s[i + 1] != '\0')
 		zero = ++i;

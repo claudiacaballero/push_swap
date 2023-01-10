@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 15:10:48 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/06 19:15:38 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/10 18:53:27 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	ft_error(int type)
 {
 	if (type == 1)
-		write(1, "Error\n", 6);
+		write(2, "Error\n", 6);
 	exit(type);
 }
 
@@ -90,23 +90,24 @@ int	main(int argc, char **argv)
 		}
 	}
 	sort_params(&a, &b);
-	printf("------------------------\na\n");
-	printf("first = %p\n", a.first);
-	printf("last = %p\n", a.last);
-	printf("size = %i\n", a.size);
-	printf("------------------------\na\n");
-	while (a.first)
-	{
-		printf("dir = %p\n", a.first);
-		printf("val = %i\n", a.first->val);
-		printf("ind = %i\n", a.first->index);
-		printf("prev = %p\n", a.first->prev);
-		printf("next = %p\n\n", a.first->next);
-		a.first = a.first->next;
-	}
-	printf("------------------------\n");
 	return (0);
 }
+
+	// printf("------------------------\na\n");
+	// printf("first = %p\n", a.first);
+	// printf("last = %p\n", a.last);
+	// printf("size = %i\n", a.size);
+	// printf("------------------------\na\n");
+	// while (a.first)
+	// {
+	// 	printf("dir = %p\n", a.first);
+	// 	printf("val = %i\n", a.first->val);
+	// 	printf("ind = %i\n", a.first->index);
+	// 	printf("prev = %p\n", a.first->prev);
+	// 	printf("next = %p\n\n", a.first->next);
+	// 	a.first = a.first->next;
+	// }
+	// printf("------------------------\n");
 
 	// pab(&a, &b, 'b');
 	// pab(&a, &b, 'b');
