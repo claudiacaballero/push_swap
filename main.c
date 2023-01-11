@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 15:10:48 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/10 18:53:27 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/11 18:32:55 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ void	fill_stack_a(int n, t_stack *a)
 		a->last = node;
 		a->size++;
 	}
-	node->index = a->size - 1;
+	node->index = 0;
+	node->pos = a->size - 1;
 }
 
 void	initialize_stacks(t_stack *a, t_stack *b)
@@ -89,6 +90,7 @@ int	main(int argc, char **argv)
 			ar++;
 		}
 	}
+	index_stack(&a);
 	sort_params(&a, &b);
 	return (0);
 }
@@ -103,6 +105,7 @@ int	main(int argc, char **argv)
 	// 	printf("dir = %p\n", a.first);
 	// 	printf("val = %i\n", a.first->val);
 	// 	printf("ind = %i\n", a.first->index);
+	// 	printf("pos = %i\n", a.first->pos);
 	// 	printf("prev = %p\n", a.first->prev);
 	// 	printf("next = %p\n\n", a.first->next);
 	// 	a.first = a.first->next;
@@ -122,7 +125,7 @@ int	main(int argc, char **argv)
 	// {
 	// 	printf("dir = %p\n", b.first);
 	// 	printf("val = %i\n", b.first->val);
-	// 	printf("ind = %i\n", b.first->index);
+	// 	printf("ind = %i\n", b.first->pos);
 	// 	printf("prev = %p\n", b.first->prev);
 	// 	printf("next = %p\n\n", b.first->next);
 	// 	b.first = b.first->next;

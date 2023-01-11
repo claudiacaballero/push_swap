@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:38:33 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/06 19:14:44 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/11 17:06:58 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 typedef struct s_node
 {
 	int				val;
+	int				pos;
 	int				index;
 	struct s_node	*next;
 	struct s_node	*prev;
@@ -54,7 +55,7 @@ void		sab(t_stack *stack, char ab);
 void		pab(t_stack *src, t_stack *dst, char ab);
 void		rab(t_stack *stack, char ab);
 void		rrab(t_stack *stack, char ab);
-void		index_stack(t_stack *stack);
+void		pos_stack(t_stack *stack);
 //doubles
 void		ss(t_stack *a, t_stack *b);
 void		rr(t_stack *a, t_stack *b);
@@ -64,6 +65,7 @@ void		rrr(t_stack *a, t_stack *b);
 int			isinorder(t_stack *stack);
 int			whereismin(t_stack *stack);
 int			whereismax(t_stack *stack);
+void		index_stack(t_stack *stack);
 
 //sorting
 void		sort_three(t_stack *stack);

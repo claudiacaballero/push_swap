@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 17:35:19 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/04 17:49:13 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/11 16:54:25 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	sab(t_stack *stack, char ab)
 	tmp->next = stack->first->next;
 	tmp->prev = stack->first;
 	stack->first->next = tmp;
-	stack->first->index = 0;
-	tmp->index = 1;
+	stack->first->pos = 0;
+	tmp->pos = 1;
 	if (stack->size == 2)
 		stack->last = tmp;
 	else
@@ -53,8 +53,8 @@ void	pab(t_stack *src, t_stack *dst, char ab)
 	if (dst->size == 0)
 		dst->last = tmp;
 	dst->size++;
-	index_stack(src);
-	index_stack(dst);
+	pos_stack(src);
+	pos_stack(dst);
 	if (ft_strchr("ab", ab))
 		ft_printf("p%c\n", ab);
 }
@@ -72,7 +72,7 @@ void	rab(t_stack *stack, char ab)
 	tmp->next = NULL;
 	stack->last = tmp;
 	stack->first->prev = NULL;
-	index_stack(stack);
+	pos_stack(stack);
 	if (ft_strchr("ab", ab))
 		ft_printf("r%c\n", ab);
 }
@@ -90,12 +90,12 @@ void	rrab(t_stack *stack, char ab)
 	tmp->prev = NULL;
 	stack->first->prev = tmp;
 	stack->first = tmp;
-	index_stack(stack);
+	pos_stack(stack);
 	if (ft_strchr("ab", ab))
 		ft_printf("rr%c\n", ab);
 }
 
-void	index_stack(t_stack *stack)
+void	pos_stack(t_stack *stack)
 {
 	t_node	*tmp;
 	int		i;
@@ -104,7 +104,7 @@ void	index_stack(t_stack *stack)
 	i = 0;
 	while (tmp)
 	{
-		tmp->index = i++;
+		tmp->pos = i++;
 		tmp = tmp->next;
 	}
 }

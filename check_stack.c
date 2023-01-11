@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 13:09:49 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/06 18:53:35 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/11 17:09:50 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ int	whereismin(t_stack *stack)
 	{
 		if (tmp->val < iter->val)
 		{
-			i = tmp->index;
+			i = tmp->pos;
 			iter = iter->next;
 		}
 		else
 		{
-			i = iter->index;
+			i = iter->pos;
 			tmp = iter;
 			iter = tmp->next;
 		}
@@ -65,15 +65,34 @@ int	whereismax(t_stack *stack)
 	{
 		if (tmp->val > iter->val)
 		{
-			i = tmp->index;
+			i = tmp->pos;
 			iter = iter->next;
 		}
 		else
 		{
-			i = iter->index;
+			i = iter->pos;
 			tmp = iter;
 			iter = tmp->next;
 		}
 	}
 	return (i);
+}
+
+void	index_stack(t_stack *stack)
+{
+	t_node	*tmp;
+	t_node	*iter;
+
+	tmp = stack->first;
+	while (tmp->next)
+	{
+		iter = stack->first;
+		while (iter)
+		{
+			if (tmp->val > iter->val)
+				tmp->index++;
+			iter = iter->next;
+		}
+		tmp = tmp->next;
+	}
 }
