@@ -6,7 +6,7 @@
 #    By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/04 16:08:34 by ccaballe          #+#    #+#              #
-#    Updated: 2023/01/11 12:27:49 by ccaballe         ###   ########.fr        #
+#    Updated: 2023/01/11 19:02:08 by ccaballe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ SRCS =	check_stack.c \
 		input_check.c \
 		main.c \
 		sorting_move.c \
-		sort_small.c
+		sort_small.c \
+		sort_big.c
 
 OBJS = $(SRCS:.c=.o)
 RM = rm -f
