@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 13:09:49 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/11 17:09:50 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/12 12:00:32 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	index_stack(t_stack *stack)
 	t_node	*iter;
 
 	tmp = stack->first;
-	while (tmp->next)
+	while (tmp)
 	{
 		iter = stack->first;
 		while (iter)
@@ -95,4 +95,18 @@ void	index_stack(t_stack *stack)
 		}
 		tmp = tmp->next;
 	}
+}
+
+int	find_node(t_stack *stack, int index)
+{
+	t_node	*tmp;
+
+	tmp = stack->first;
+	while (tmp)
+	{
+		if (tmp->index == index)
+			return (tmp->pos);
+		tmp = tmp->next;
+	}
+	return (-1);
 }

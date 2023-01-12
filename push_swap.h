@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:38:33 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/11 17:06:58 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/12 19:02:23 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,12 @@ int			isinorder(t_stack *stack);
 int			whereismin(t_stack *stack);
 int			whereismax(t_stack *stack);
 void		index_stack(t_stack *stack);
+int			find_node(t_stack *stack, int index);
 
 //sorting
 void		sort_three(t_stack *stack);
 void		sort_four(t_stack *a, t_stack *b);
 void		sort_five(t_stack *a, t_stack *b);
+void		push_stack_b(t_stack *a, t_stack *b, int chunks);
 
 #endif

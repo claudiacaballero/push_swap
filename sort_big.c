@@ -5,40 +5,46 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 18:51:32 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/11 19:13:10 by ccaballe         ###   ########.fr       */
+/*   Created: 2023/01/12 12:17:51 by ccaballe          #+#    #+#             */
+/*   Updated: 2023/01/12 20:00:48 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_chunks_b(t_stack *a, t_stack *b, int chunks)
+// void	push_stack_b(t_stack *a, t_stack *b, int chunks)
+// {
+	
+// }
+
+void	push_stack_b(t_stack *a, t_stack *b, int chunks)
 {
-	t_node	top;
-	t_node	bottom;
 	int		i;
+	int		iter;
+	int		max_ind_chunk;
+	int		total_size;
+	int		tmp_size;
 
 	i = 0;
-	while (++i < chunks)
+	total_size = a->size;
+	while (++i <= chunks)
 	{
-		top = a->first;
-		bottom = a->last;
-		while (top->pos < bottom->pos)
+		printf("i = %i\n", i);
+		tmp_size = a->size;
+		max_ind_chunk = (total_size / chunks) * i;
+		iter = 0;
+		while (iter < tmp_size)
 		{
-			if (top->index < (a->size / chunks) * i)
-				pab(a, b, 'b');
-			if (bottom->index < (a->size / chunks) * i)
+			printf("index = %i\n", a->first->index);
+			if (a->first->index < max_ind_chunk)
 			{
-				rrab(a, 'a');
 				pab(a, b, 'b');
-				//mirar quan fer rb
+				// if (total_size / chunks > 10 && a->first->index < max_ind_chunk / 2)
+				// 	rab(b, 'b');
 			}
-			top = top->next;
-			bottom = bottom->prev;
+			else
+				rab(a, 'a');
+			iter++;
 		}
 	}
-	//sort_params pels que quedin potser ??
-	//passar a stack a de manera ordenada
 }
-
-
