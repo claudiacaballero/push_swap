@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:17:51 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/17 18:55:49 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/17 20:17:20 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,14 @@ void	push_stack_b(t_stack *a, t_stack *b, int max_ind_chunk, int total_size)
 
 void	push_stack_a(t_stack *a, t_stack *b)
 {
-	
-	if (whereismax(b) < b->size / 2)
-	{}
-	else
-	{}
+	while (b->first)
+	{
+		if (whereismax(b) < b->size / 2)
+		{
+			if (find_node(b, b->size - 2) < whereismax(b))
+			
+		}
+		else
+		{}
+	}
 }
