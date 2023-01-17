@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 15:10:48 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/12 19:28:44 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/17 18:29:40 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	sort_params(t_stack *a, t_stack *b)
 	else if (a->size == 5)
 		sort_five(a, b);
 	else
-		push_stack_b(a, b, 3);
+		sort_big(a, b, 3, a->size);
 }
 
 int	main(int argc, char **argv)
