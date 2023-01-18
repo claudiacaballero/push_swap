@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 15:10:48 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/17 18:29:40 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/18 15:34:09 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,39 +96,40 @@ int	main(int argc, char **argv)
 	index_stack(&a);
 	sort_params(&a, &b);
 
-	printf("------------------------\na\n");
-	printf("first = %p\n", a.first);
-	printf("last = %p\n", a.last);
-	printf("size = %i\n", a.size);
-	printf("------------------------\na\n");
-	while (a.first)
-	{
-		printf("dir = %p\n", a.first);
-		printf("val = %i\n", a.first->val);
-		printf("ind = %i\n", a.first->index);
-		printf("pos = %i\n", a.first->pos);
-		printf("prev = %p\n", a.first->prev);
-		printf("next = %p\n\n", a.first->next);
-		a.first = a.first->next;
-	}
-	printf("------------------------\n");
-
-	printf("------------------------\nb\n");
-	printf("first = %p\n", b.first);
-	printf("last = %p\n", b.last);
-	printf("size = %i\n", b.size);
-	printf("------------------------\n");
-	while (b.first)
-	{
-		printf("dir = %p\n", b.first);
-		printf("val = %i\n", b.first->val);
-		printf("ind = %i\n", b.first->index);
-		printf("pos = %i\n", b.first->pos);
-		printf("prev = %p\n", b.first->prev);
-		printf("next = %p\n\n", b.first->next);
-		b.first = b.first->next;
-	}
-	
 	return (0);
 }
 
+
+	// printf("------------------------\na\n");
+	// printf("first = %p\n", a.first);
+	// printf("last = %p\n", a.last);
+	// printf("size = %i\n", a.size);
+	// printf("------------------------\na\n");
+	// while (a.first)
+	// {
+	// 	printf("dir = %p\n", a.first);
+	// 	printf("val = %i\n", a.first->val);
+	// 	printf("ind = %i\n", a.first->index);
+	// 	printf("pos = %i\n", a.first->pos);
+	// 	printf("prev = %p\n", a.first->prev);
+	// 	printf("next = %p\n\n", a.first->next);
+	// 	a.first = a.first->next;
+	// }
+	// printf("------------------------\n");
+
+	// printf("------------------------\nb\n");
+	// printf("first = %p\n", b.first);
+	// printf("last = %p\n", b.last);
+	// printf("size = %i\n", b.size);
+	// printf("------------------------\n");
+	// while (b.first)
+	// {
+	// 	printf("dir = %p\n", b.first);
+	// 	printf("val = %i\n", b.first->val);
+	// 	printf("ind = %i\n", b.first->index);
+	// 	printf("pos = %i\n", b.first->pos);
+	// 	printf("prev = %p\n", b.first->prev);
+	// 	printf("next = %p\n\n", b.first->next);
+	// 	b.first = b.first->next;
+	// }
+	
