@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:17:51 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/18 16:18:56 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/19 19:41:58 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ void	sort_big(t_stack *a, t_stack *b, int chunks, int total_size)
 	int		iter;
 	int		max_ind;
 	int		tmp_size;
+	int		chunk_size;
 
+	chunk_size = total_size / chunks;
 	i = 0;
 	while (a->first)
 	{
@@ -28,7 +30,7 @@ void	sort_big(t_stack *a, t_stack *b, int chunks, int total_size)
 		while (++iter < tmp_size)
 		{
 			if (a->first->index < max_ind)
-				push_stack_b(a, b, max_ind, total_size);
+				push_stack_b(a, b, max_ind, chunk_size);
 			else
 				rab(a, 'a');
 		}
@@ -36,56 +38,62 @@ void	sort_big(t_stack *a, t_stack *b, int chunks, int total_size)
 	push_stack_a(a, b);
 }
 
-void	push_stack_b(t_stack *a, t_stack *b, int max_ind, int total_size)
+void	push_stack_b(t_stack *a, t_stack *b, int max_ind, int chunk_size)
 {
 	pab(a, b, 'b');
-	if (total_size > 50)
+	if (chunk_size > 20)
 	{
-		if (b->first->index < max_ind / 2)
+		if (b->first->index < (max_ind - (chunk_size / 2)))
 			rab(b, 'b');
 	}
 }
 
 void	push_stack_a(t_stack *a, t_stack *b)
 {
-	t_node	max;
-	t_node	second;
-	int		max_ind;
-
 	while (b->first)
 	{
-		max = find_node(b, b->size - 1);
-		second = find_node(b, b->size - 2);
-		max_ind = b->size - 1;
-		while (max_ind == b->size - 1)
+		if (b->size == 1)
+			pab(b, a, 'a');
+		else if (mtp(b, b->size - 2) < mtp(b, b->size - 1))
 		{
-			if (max == 0 || second == 0)
-				pab(b, a, 'a');
-			else if (max < b-size / 2 && max < b-size - second)
-				rrab(b, 'b');
-			else
-				rab(b, 'b');
-		//afegir altres casos de rrab i de rab.
+			push_node(b, b->size - 2, 'b');
+			pab(b, a, 'a');
+			push_node(b, b->size, 'b');
+			pab(b, a, 'a');
+			sab(a, 'a');
+		}
+		else
+		{
+			push_node(b, b->size - 1, 'b');
+			pab(b, a, 'a');
 		}
 	}
 }
 
-	// while (b->first)
-	// {
-	// 	if (whereismax(b) < b->size / 2)
-	// 	{
-	// 		if (whereismax(b) == 0 || find_node(b, b->size - 2) == 0)
-	// 			pab(b, a, 'a');
-	// 		else
-	// 			rab(b, 'b');
-	// 	}
-	// 	else
-	// 	{
-	// 		if (find_node(b, b->size - 2) == 0 || whereismax(b) == 0)
-	// 			pab(b, a, 'a');
-	// 		else
-	// 			rrab(b, 'b');
-	// 	}
-	// 	if (!isinorder(a))
-	// 		sab(a, 'a');
-	// }
+void	push_node(t_stack *stack, int index, char s)
+{
+	int	pos;
+
+	pos = find_node(stack, index);
+	if (pos == -1)
+		return ;
+	while (pos != 0)
+	{
+		if (pos < stack->size / 2)
+			rab(stack, s);
+		else
+			rrab(stack, s);
+		pos = find_node(stack, index);
+	}
+}
+
+int	mtp(t_stack *stack, int index)
+{
+	int	mtp;
+
+	if (find_node(stack, index) < stack->size / 2)
+		mtp = find_node(stack, index);
+	else
+		mtp = stack->size - find_node(stack, index);
+	return (mtp);
+}
