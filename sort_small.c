@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 16:11:40 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/18 14:38:20 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/20 11:57:12 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	sort_three(t_stack *stack)
 {
+	if (isinorder(stack))
+		return ;
 	if (stack->first->val < stack->first->next->val)
 		rrab(stack, 'a');
 	else if (whereismax(stack) == 0)
@@ -30,6 +32,8 @@ void	sort_four(t_stack *a, t_stack *b)
 		rrab(a, 'a');
 	if (whereismin(a) == 3)
 		rrab(a, 'a');
+	if (isinorder(a))
+		return ;
 	pab(a, b, 'b');
 	sort_three(a);
 	pab(b, a, 'a');

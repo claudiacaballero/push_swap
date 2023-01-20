@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:38:33 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/19 19:23:20 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/20 12:44:02 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,17 @@ typedef struct s_stack
 }	t_stack;
 
 //main functions
-void		ft_error(int type);
+void		ft_error(int type, t_stack *a);
 void		fill_stack_a(int n, t_stack *a);
 void		initialize_stacks(t_stack *a, t_stack *b);
 int			main(int argc, char **argv);
 void		sort_params(t_stack *a, t_stack *b);
 
 //input_check functions
-long int	process_input(char *s);
-long int	ft_atol(char *s, char sign);
-void		check_dups(long int n, char **argv, int ar);
+void		ft_free(t_stack *stack);
+long int	process_input(char *s, t_stack *a);
+long int	ft_atol(char *s, char sign, t_stack *a);
+void		check_dups(long int n, char **argv, int ar, t_stack *a);
 
 //sorting movement functions
 void		sab(t_stack *stack, char ab);

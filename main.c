@@ -6,18 +6,18 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 15:10:48 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/19 19:36:13 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/20 13:22:39 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-void	ft_error(int type)
+void	ft_error(int type, t_stack *a)
 {
 	if (type == 1)
 		write(2, "Error\n", 6);
-	//borrar stacks
+	ft_free(a);
 	exit(type);
 }
 
@@ -27,7 +27,7 @@ void	fill_stack_a(int n, t_stack *a)
 
 	node = (t_node *)malloc(sizeof(t_node));
 	if (!node)
-		ft_error(1);
+		ft_error(1, a);
 	node->val = n;
 	node->prev = NULL;
 	node->next = NULL;
@@ -70,7 +70,7 @@ void	sort_params(t_stack *a, t_stack *b)
 		sort_five(a, b);
 	else if (a->size < 200)
 		sort_big(a, b, 3, a->size);
-	else if (a->size <= 500)
+	else
 		sort_big(a, b, 8, a->size);
 }
 
@@ -83,55 +83,21 @@ int	main(int argc, char **argv)
 
 	initialize_stacks(&a, &b);
 	if (argc < 2)
-		ft_error(0);
+		ft_error(0, &a);
 	else
 	{
 		ar = 1;
 		while (ar < argc)
 		{
-			new = process_input(argv[ar]);
-			check_dups(new, argv, ar);
+			new = process_input(argv[ar], &a);
+			check_dups(new, argv, ar, &a);
 			fill_stack_a(ft_atoi(argv[ar]), &a);
 			ar++;
 		}
 	}
 	index_stack(&a);
 	sort_params(&a, &b);
-
+	ft_free(&a);
+	ft_free(&b);
 	return (0);
 }
-
-
-	// printf("------------------------\na\n");
-	// printf("first = %p\n", a.first);
-	// printf("last = %p\n", a.last);
-	// printf("size = %i\n", a.size);
-	// printf("------------------------\na\n");
-	// while (a.first)
-	// {
-	// 	printf("dir = %p\n", a.first);
-	// 	printf("val = %i\n", a.first->val);
-	// 	printf("ind = %i\n", a.first->index);
-	// 	printf("pos = %i\n", a.first->pos);
-	// 	printf("prev = %p\n", a.first->prev);
-	// 	printf("next = %p\n\n", a.first->next);
-	// 	a.first = a.first->next;
-	// }
-	// printf("------------------------\n");
-
-	// printf("------------------------\nb\n");
-	// printf("first = %p\n", b.first);
-	// printf("last = %p\n", b.last);
-	// printf("size = %i\n", b.size);
-	// printf("------------------------\n");
-	// while (b.first)
-	// {
-	// 	printf("dir = %p\n", b.first);
-	// 	printf("val = %i\n", b.first->val);
-	// 	printf("ind = %i\n", b.first->index);
-	// 	printf("pos = %i\n", b.first->pos);
-	// 	printf("prev = %p\n", b.first->prev);
-	// 	printf("next = %p\n\n", b.first->next);
-	// 	b.first = b.first->next;
-	// }
-	
