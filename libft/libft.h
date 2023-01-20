@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 16:42:46 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/04 13:01:38 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/20 17:17:00 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,17 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }	t_list;
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE	(int)1
+# endif
 
 int		ft_atoi(char *str);
 void	ft_bzero(void *s, size_t n);
@@ -66,5 +71,8 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+char	*ft_strjoin_free(char *storage, char *buffer);
+char	*get_next_line(int fd);
 
 #endif

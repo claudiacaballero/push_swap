@@ -6,7 +6,7 @@
 #    By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/17 16:36:29 by ccaballe          #+#    #+#              #
-#    Updated: 2023/01/04 13:18:47 by ccaballe         ###   ########.fr        #
+#    Updated: 2023/01/20 17:15:43 by ccaballe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ SRCS = ft_isalpha.c \
 	ft_striteri.c \
 	ft_itoa.c \
 	ft_split.c \
+	get_next_line.c
 
 SRCSBONUS = ft_lstnew_bonus.c \
 	ft_lstadd_front_bonus.c \
