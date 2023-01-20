@@ -6,7 +6,7 @@
 #    By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/04 16:08:34 by ccaballe          #+#    #+#              #
-#    Updated: 2023/01/17 15:58:59 by ccaballe         ###   ########.fr        #
+#    Updated: 2023/01/20 15:22:00 by ccaballe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS =	check_stack.c \
 		double_moves.c \
 		input_check.c \
-		main.c \
+		push_swap.c \
 		sorting_move.c \
 		sort_small.c \
 		sort_big.c
