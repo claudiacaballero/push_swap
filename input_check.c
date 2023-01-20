@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 15:21:16 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/20 12:42:46 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/20 14:57:28 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,6 @@ void	ft_free(t_stack *stack)
 	while (stack->first)
 	{
 		tmp = stack->first->next;
-		// stack->first->val = NULL;
-		// stack->first->index = NULL;
-		// stack->first->pos = NULL;
 		free(stack->first);
 		stack->first = tmp;
 	}
