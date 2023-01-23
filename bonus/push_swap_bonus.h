@@ -6,15 +6,42 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 16:25:27 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/20 17:24:11 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/23 19:13:40 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_BONUS_H
 # define PUSH_SWAP_BONUS_H
 
-# include "libf/libft.h"
-# include "ft_printf/ft_printf.h"
+# include "../libft/libft.h"
+# include "../ft_printf/ft_printf.h"
+
+//list struct
+typedef struct s_node
+{
+	int				val;
+	int				pos;
+	int				index;
+	struct s_node	*next;
+	struct s_node	*prev;
+}	t_node;
+
+typedef struct s_stack
+{
+	t_node	*first;
+	t_node	*last;
+	int		size;
+}	t_stack;
+
+void		ft_error(int type, t_stack *a);
+void		fill_stack_a(int n, t_stack *a);
+void		initialize_stacks(t_stack *a, t_stack *b);
+void		checker(void);
+
+void		ft_free(t_stack *stack);
+long int	process_input(char *s, t_stack *a);
+long int	ft_atol(char *s, char sign, t_stack *a);
+void		check_dups(long int n, char **argv, int ar, t_stack *a);
 
 void		sab(t_stack *stack, char ab);
 void		pab(t_stack *src, t_stack *dst, char ab);
