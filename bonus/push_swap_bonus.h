@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: claudia <claudia@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 16:25:27 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/24 11:33:39 by claudia          ###   ########.fr       */
+/*   Updated: 2023/01/24 16:19:21 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,13 @@ void		ft_error(int type, t_stack *a);
 void		fill_stack_a(int n, t_stack *a);
 void		initialize_stacks(t_stack *a, t_stack *b);
 void		checker(t_stack *a, t_stack *b);
+int			exec_moves(char *str, t_stack *a, t_stack *b);
+
+int			isinorder(t_stack *stack);
+int			whereismin(t_stack *stack);
+int			whereismax(t_stack *stack);
+void		index_stack(t_stack *stack);
+int			find_node(t_stack *stack, int index);
 
 void		ft_free(t_stack *stack);
 long int	process_input(char *s, t_stack *a);
@@ -49,8 +56,8 @@ void		rab(t_stack *stack, char ab);
 void		rrab(t_stack *stack, char ab);
 void		pos_stack(t_stack *stack);
 //doubles
-void		ss(t_stack *a, t_stack *b);
-void		rr(t_stack *a, t_stack *b);
-void		rrr(t_stack *a, t_stack *b);
+void		ss(t_stack *a, t_stack *b, char c);
+void		rr(t_stack *a, t_stack *b, char c);
+void		rrr(t_stack *a, t_stack *b, char c);
 
 #endif

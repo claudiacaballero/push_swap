@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: claudia <claudia@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 15:15:22 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/24 11:35:11 by claudia          ###   ########.fr       */
+/*   Updated: 2023/01/24 16:27:41 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,21 @@ void	checker(t_stack *a, t_stack *b)
 	str = get_next_line(0);
 	while (str)
 	{
-		//funcio de ifs ??
+		if (!exec_moves(str, a, b))
+		{
+			ft_free(b);
+			ft_error(1, a);
+		}
+		free(str);
 		str = get_next_line(0);
 	}
 	free(str);
 	if (b->size != 0)
-		//KO
+		ft_printf("KO\n");
 	else if (!isinorder(a))
-		//KO
+		ft_printf("KO\n");
 	else
-		//OK
-	//protegir moviments (si son impossibles que no faci res)
+		ft_printf("OK\n");
 }
 
 int	main(int argc, char **argv)
@@ -39,11 +43,11 @@ int	main(int argc, char **argv)
 	t_stack		a;
 	t_stack		b;
 
-	initialize_stacks(&a, &b);
 	if (argc < 2)
 		ft_error(0, &a);
 	else
 	{
+		initialize_stacks(&a, &b);
 		ar = 1;
 		while (ar < argc)
 		{
@@ -56,6 +60,7 @@ int	main(int argc, char **argv)
 	checker(&a, &b);
 	ft_free(&a);
 	ft_free(&b);
+	return (0);
 }
 
 void	ft_error(int type, t_stack *a)

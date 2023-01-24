@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:38:33 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/20 12:44:02 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/24 15:52:26 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ void		rab(t_stack *stack, char ab);
 void		rrab(t_stack *stack, char ab);
 void		pos_stack(t_stack *stack);
 //doubles
-void		ss(t_stack *a, t_stack *b);
-void		rr(t_stack *a, t_stack *b);
-void		rrr(t_stack *a, t_stack *b);
+void		ss(t_stack *a, t_stack *b, char c);
+void		rr(t_stack *a, t_stack *b, char c);
+void		rrr(t_stack *a, t_stack *b, char c);
 
 //check stack functions
 int			isinorder(t_stack *stack);
