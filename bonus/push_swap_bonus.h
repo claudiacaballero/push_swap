@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: claudia <claudia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 16:25:27 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/23 19:13:40 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/24 11:33:39 by claudia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_stack
 void		ft_error(int type, t_stack *a);
 void		fill_stack_a(int n, t_stack *a);
 void		initialize_stacks(t_stack *a, t_stack *b);
-void		checker(void);
+void		checker(t_stack *a, t_stack *b);
 
 void		ft_free(t_stack *stack);
 long int	process_input(char *s, t_stack *a);

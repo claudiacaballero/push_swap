@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+         #
+#    By: claudia <claudia@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/04 16:08:34 by ccaballe          #+#    #+#              #
-#    Updated: 2023/01/23 19:20:20 by ccaballe         ###   ########.fr        #
+#    Updated: 2023/01/24 11:36:35 by claudia          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRCBONUS = 	bonus/double_moves_bonus.c \
 			bonus/sorting_move_bonus.c \
 			bonus/input_check_bonus.c \
 			bonus/checker_bonus.c \
+			bonus/checker_utils_bonus.c \
 			bonus/check_stack_bonus.c 
 
 OBJBONUS = $(SRCBONUS:.c=.o)

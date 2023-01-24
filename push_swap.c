@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: claudia <claudia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 15:10:48 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/20 15:17:17 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/24 11:30:01 by claudia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,11 @@ int	main(int argc, char **argv)
 	t_stack		a;
 	t_stack		b;
 
-	initialize_stacks(&a, &b);
 	if (argc < 2)
 		ft_error(0, &a);
 	else
 	{
+		initialize_stacks(&a, &b);
 		ar = 1;
 		while (ar < argc)
 		{

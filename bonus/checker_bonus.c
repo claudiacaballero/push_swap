@@ -3,19 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: claudia <claudia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 15:15:22 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/23 19:25:52 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/24 11:35:11 by claudia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-void	checker(void)
+void	checker(t_stack *a, t_stack *b)
 {
-	//get next line fd = 0
-	//STDIN_FILENO
+	char	*str;
+
+	str = get_next_line(0);
+	while (str)
+	{
+		//funcio de ifs ??
+		str = get_next_line(0);
+	}
+	free(str);
+	if (b->size != 0)
+		//KO
+	else if (!isinorder(a))
+		//KO
+	else
+		//OK
 	//protegir moviments (si son impossibles que no faci res)
 }
 
@@ -40,7 +53,9 @@ int	main(int argc, char **argv)
 			ar++;
 		}
 	}
-	checker();
+	checker(&a, &b);
+	ft_free(&a);
+	ft_free(&b);
 }
 
 void	ft_error(int type, t_stack *a)
