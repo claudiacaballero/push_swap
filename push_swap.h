@@ -6,7 +6,7 @@
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:38:33 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/24 15:52:26 by ccaballe         ###   ########.fr       */
+/*   Updated: 2023/01/24 16:55:45 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ typedef struct s_stack
 void		ft_error(int type, t_stack *a);
 void		fill_stack_a(int n, t_stack *a);
 void		initialize_stacks(t_stack *a, t_stack *b);
-int			main(int argc, char **argv);
 void		sort_params(t_stack *a, t_stack *b);
 
 //input_check functions
@@ -78,5 +77,9 @@ void		push_stack_b(t_stack *a, t_stack *b, int max_ind, int chunk_size);
 void		push_stack_a(t_stack *a, t_stack *b);
 int			mtp(t_stack *stack, int index);
 void		push_node(t_stack *stack, int index, char s);
+
+//checker
+int			exec_moves(char *str, t_stack *a, t_stack *b);
+void		checker(t_stack *a, t_stack *b);
 
 #endif

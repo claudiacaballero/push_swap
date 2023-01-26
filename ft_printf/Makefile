@@ -6,7 +6,7 @@
 #    By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/19 15:30:00 by ccaballe          #+#    #+#              #
-#    Updated: 2023/01/04 13:32:02 by ccaballe         ###   ########.fr        #
+#    Updated: 2023/01/25 16:19:52 by ccaballe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,13 +20,21 @@ OBJS = $(SRCS:.c=.o)
 RM = rm -f
 DEPS = $(SRCS:.c=.d)
 
+GREEN = \033[1;92m
+RED = \033[1;91m
+NC = \033[0m
+
 %.o: %.c Makefile
 	@$(CC) $(CFLAGS) -I./ -c $< -o $@
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME):: $(OBJS)
 	@ar crs $(NAME) $(OBJS)
+	@echo "$(GREEN)ft_printf compiled$(NC)"
+
+$(NAME)::
+	@echo -n
 
 -include $(DEPS)
 

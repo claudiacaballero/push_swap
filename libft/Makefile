@@ -6,7 +6,7 @@
 #    By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/17 16:36:29 by ccaballe          #+#    #+#              #
-#    Updated: 2023/01/20 17:15:43 by ccaballe         ###   ########.fr        #
+#    Updated: 2023/01/25 16:19:43 by ccaballe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,13 +65,21 @@ RM = rm -f
 DEPS = $(SRCS:.c=.d)
 DEPSBONUS = $(SRCSBONUS:.c=.d)
 
+GREEN = \033[1;92m
+RED = \033[1;91m
+NC = \033[0m
+
 %.o: %.c Makefile
 	@$(CC) $(CFLAGS) -MMD -I./ -c $< -o $@
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME):: $(OBJS)
 	@ar crs $(NAME) $(OBJS)
+	@echo "$(GREEN)libft compiled$(NC)"
+
+$(NAME)::
+	@echo -n
 
 -include $(DEPS)
 

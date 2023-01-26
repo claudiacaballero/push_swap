@@ -1,67 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_bonus.c                                    :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccaballe <ccaballe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 15:15:22 by ccaballe          #+#    #+#             */
-/*   Updated: 2023/01/24 16:27:41 by ccaballe         ###   ########.fr       */
+/*   Created: 2023/01/24 17:01:05 by ccaballe          #+#    #+#             */
+/*   Updated: 2023/01/24 17:16:57 by ccaballe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_bonus.h"
-
-void	checker(t_stack *a, t_stack *b)
-{
-	char	*str;
-
-	str = get_next_line(0);
-	while (str)
-	{
-		if (!exec_moves(str, a, b))
-		{
-			ft_free(b);
-			ft_error(1, a);
-		}
-		free(str);
-		str = get_next_line(0);
-	}
-	free(str);
-	if (b->size != 0)
-		ft_printf("KO\n");
-	else if (!isinorder(a))
-		ft_printf("KO\n");
-	else
-		ft_printf("OK\n");
-}
-
-int	main(int argc, char **argv)
-{
-	int			ar;
-	long int	new;
-	t_stack		a;
-	t_stack		b;
-
-	if (argc < 2)
-		ft_error(0, &a);
-	else
-	{
-		initialize_stacks(&a, &b);
-		ar = 1;
-		while (ar < argc)
-		{
-			new = process_input(argv[ar], &a);
-			check_dups(new, argv, ar, &a);
-			fill_stack_a(ft_atoi(argv[ar]), &a);
-			ar++;
-		}
-	}
-	checker(&a, &b);
-	ft_free(&a);
-	ft_free(&b);
-	return (0);
-}
+#include "push_swap.h"
 
 void	ft_error(int type, t_stack *a)
 {
